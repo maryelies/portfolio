@@ -6,8 +6,10 @@ class Note {
   
   createElement(title){
     let newNote = document.createElement('div');
+    newNote.className = 'card';
     let txt = document.createElement('p');
     let a = document.createElement('a');
+    a.className = 'card-remove';
     
     newNote.appendChild(txt);
     newNote.appendChild(a);
@@ -19,8 +21,8 @@ class Note {
   }
   
   add(){
-    // HINT🤩
     // this function should append the note to the screen somehow
+    document.querySelector(".notes").appendChild(this.element);
   }
   
   saveToStorage(){
@@ -35,7 +37,8 @@ class Note {
   } 
 }
 
-let note = new Note('ef');
+let n1 = new Note('ef');
+n1.add();
 
 class App {
   constructor() {
