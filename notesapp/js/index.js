@@ -1,13 +1,19 @@
 class Note {
   constructor(title) {
     this.title = title;
-    // HINT🤩 this.element = this.createElement(title);
+    this.element = this.createElement(title);
   }
   
   createElement(title){
     let newNote = document.createElement('div');
+    let txt = document.createElement('p');
+    let a = document.createElement('a');
     
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    newNote.appendChild(txt);
+    newNote.appendChild(a);
+    console.log(newNote);
+      
+    a.addEventListener('click', this.remove.bind(newNote));
     
     return newNote;
   }
@@ -28,6 +34,8 @@ class Note {
     // in this function, 'this' will refer to the current note element
   } 
 }
+
+let note = new Note('ef');
 
 class App {
   constructor() {
