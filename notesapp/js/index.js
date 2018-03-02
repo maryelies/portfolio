@@ -14,6 +14,7 @@ class Note {
     newNote.appendChild(txt);
     newNote.appendChild(a);
     console.log(newNote);
+    a.innerHTML="Remove";
       
     a.addEventListener('click', this.remove.bind(newNote));
     
