@@ -35,13 +35,15 @@ class Note {
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-    let element = document.querySelector(".card");
+    let element = this;
     element.parentNode.removeChild(element);
   } 
 }
 
 let n1 = new Note('ef');
+let n2 = new Note('lkj');
 n1.add();
+n2.add();
 
 class App {
   constructor() {
