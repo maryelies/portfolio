@@ -35,6 +35,8 @@ class Note {
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+    let element = document.querySelector(".card");
+    element.parentNode.removeChild(element);
   } 
 }
 
