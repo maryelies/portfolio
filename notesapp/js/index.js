@@ -42,8 +42,8 @@ class Note {
 
 let n1 = new Note('ef');
 let n2 = new Note('lkj');
-n1.add();
-n2.add();
+//n1.add();
+//n2.add();
 
 class App {
   constructor() {
@@ -51,7 +51,18 @@ class App {
   
     // HINT🤩
     // clicking the button should work
+    let btn = document.getElementById("btnAddNote");
+    btn.addEventListener('click', function(){
+        n1.add();
+    });
     // pressing the enter key should also work
+    let input = document.getElementById("txtAddNote");
+    input.addEventListener('keypress', function(e){
+        let key = e.keyCode;
+        if(key===13){
+            n2.add();
+        } 
+    });
     // this.btnAdd = ???
     // this.btnAdd.addEventListener("click", this.createNote.bind(this));
     // this.loadNotesFromStorage();
