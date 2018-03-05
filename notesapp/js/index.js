@@ -15,6 +15,7 @@ class Note {
     newNote.appendChild(a);
     console.log(newNote);
     a.innerHTML="Remove";
+    txt.innerHTML= document.getElementById('txtAddNote').value;
       
     a.addEventListener('click', this.remove.bind(newNote));
     
@@ -62,7 +63,7 @@ class App {
     this.txtAdd.addEventListener('keypress', function(e){
         let key = e.keyCode;
         if(key===13){
-            e=>this.createNote();
+            
         } 
     });
     
