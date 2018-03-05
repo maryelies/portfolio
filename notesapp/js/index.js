@@ -51,20 +51,24 @@ class App {
   
     // HINT🤩
     // clicking the button should work
-    let btn = document.getElementById("btnAddNote");
+    /*let btn = document.getElementById("btnAddNote");
     btn.addEventListener('click', function(){
         n1.add();
-    });
+    });*/
     // pressing the enter key should also work
-    let input = document.getElementById("txtAddNote");
-    input.addEventListener('keypress', function(e){
+    this.txtAdd = document.getElementById("txtAddNote");
+    /*this.txtAdd.addEventListener("keypress", this.createNote.bind(this));*/
+      
+    this.txtAdd.addEventListener('keypress', function(e){
         let key = e.keyCode;
         if(key===13){
-            n2.add();
+            e=>this.createNote();
         } 
     });
-    // this.btnAdd = ???
-    // this.btnAdd.addEventListener("click", this.createNote.bind(this));
+    
+    
+    this.btnAdd = document.getElementById("btnAddNote");
+    this.btnAdd.addEventListener("click", this.createNote.bind(this));
     // this.loadNotesFromStorage();
   }
   
@@ -76,9 +80,9 @@ class App {
    
   createNote(e){
     // this function should create a new note by using the Note() class
-    
+    let note = new Note('hi');
     // HINT🤩
-    // note.add();
+    note.add();
     // note.saveToStorage();
     // this.reset();
   }
