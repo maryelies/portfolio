@@ -35,7 +35,7 @@ class Note {
     console.log(this.title); 
     this.notesArray.push(this.title);
     let arrayString = JSON.stringify(this.notesArray);
-    localStorage.setItem('savedItem', arrayString);
+    localStorage.setItem('savedItems', arrayString);
     console.log(this.notesArray);
   }
   
@@ -78,13 +78,16 @@ class App {
         }
     });
     
-    //this.loadNotesFromStorage();
+    this.loadNotesFromStorage();
   }
   
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+    let itemString = localStorage.getItem('savedItems');
+    let itemArray = JSON.parse(itemString);
+    console.log(itemArray);
   }
    
   createNote(e){
