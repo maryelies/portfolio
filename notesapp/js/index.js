@@ -35,9 +35,10 @@ class Note {
     let itemString = localStorage.getItem('savedItems');
     this.notesArray = JSON.parse(itemString);  
       
-    console.log(this.title); 
+    //console.log(this.title); 
     this.notesArray.push(this.title);
     let arrayString = JSON.stringify(this.notesArray);
+    console.log(arrayString);
     localStorage.setItem('savedItems', arrayString);
     console.log(this.notesArray);
   }
@@ -47,6 +48,9 @@ class Note {
     // in this function, 'this' will refer to the current note element
     let element = this;
     element.parentNode.removeChild(element);
+    
+    element.className='card slideOutLeft animated';
+      //delay / time out fixen!
   } 
 }
 
@@ -74,10 +78,11 @@ class App {
     this.txtAdd = document.getElementById("txtAddNote");
     /*this.txtAdd.addEventListener("keypress", this.createNote.bind(this));*/
       
-    this.txtAdd.addEventListener('keypress', function(e){
+    this.txtAdd.addEventListener('keypress', e => {
         let key = e.keyCode;
         if(key===13){
-            
+            this.btnAdd.click();
+            e.preventDefault();
         }
     });
     
@@ -90,8 +95,13 @@ class App {
     // something like note.add() in a loop would be nice
     let itemString = localStorage.getItem('savedItems');
     let itemArray = JSON.parse(itemString);
-    console.log(itemArray);
+    //console.log(itemArray);
     
+    /*let i;
+    for(i=0; i< itemArray.length; i++){
+        let note = new Note(this.itemArray[i]);
+        note.add();
+    }*/
   }
    
   createNote(e){
