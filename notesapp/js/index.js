@@ -32,14 +32,11 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-      
-    //let element = this;
-    //let saved = JSON.parse(localStorage.setItem(element));
-    //localStorage.setItem(element, JSON.stringify(saved));
-    //console.log(localStorage.getItem("element"));
+    console.log(this.title); 
     this.notesArray.push(this.title);
     let arrayString = JSON.stringify(this.notesArray);
-    
+    localStorage.setItem('savedItem', arrayString);
+    console.log(this.notesArray);
   }
   
   remove(){
@@ -66,6 +63,7 @@ class App {
         n1.add();
     });*/
     this.btnAdd = document.getElementById("btnAddNote");
+      
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
       
     
@@ -80,7 +78,7 @@ class App {
         }
     });
     
-    // this.loadNotesFromStorage();
+    //this.loadNotesFromStorage();
   }
   
   loadNotesFromStorage() {
@@ -94,7 +92,7 @@ class App {
     let note = new Note('hi');
     // HINT🤩
     note.add();
-    // note.saveToStorage();
+    note.saveToStorage();
     this.reset();
   }
   
