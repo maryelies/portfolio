@@ -2,7 +2,7 @@ class Note {
   constructor(title) {
     this.title = title;
     this.element = this.createElement(title);
-    this.notesarray = [];
+    this.notesArray = [];
   }
   
   createElement(title){
@@ -37,7 +37,9 @@ class Note {
     //let saved = JSON.parse(localStorage.setItem(element));
     //localStorage.setItem(element, JSON.stringify(saved));
     //console.log(localStorage.getItem("element"));
-    this.notesarray.push(this.title);
+    this.notesArray.push(this.title);
+    let arrayString = JSON.stringify(this.notesArray);
+    
   }
   
   remove(){
