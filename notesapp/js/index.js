@@ -88,11 +88,13 @@ class App {
     let itemString = localStorage.getItem('savedItems');
     let itemArray = JSON.parse(itemString);
     console.log(itemArray);
+    
   }
    
   createNote(e){
     // this function should create a new note by using the Note() class
-    let note = new Note('hi');
+    this.title = document.getElementById('txtAddNote').value;
+    let note = new Note(this.title);
     // HINT🤩
     note.add();
     note.saveToStorage();
