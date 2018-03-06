@@ -2,6 +2,7 @@ class Note {
   constructor(title) {
     this.title = title;
     this.element = this.createElement(title);
+    this.notesarray = [];
   }
   
   createElement(title){
@@ -31,6 +32,12 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+      
+    //let element = this;
+    //let saved = JSON.parse(localStorage.setItem(element));
+    //localStorage.setItem(element, JSON.stringify(saved));
+    //console.log(localStorage.getItem("element"));
+    this.notesarray.push(this.title);
   }
   
   remove(){
@@ -56,6 +63,10 @@ class App {
     btn.addEventListener('click', function(){
         n1.add();
     });*/
+    this.btnAdd = document.getElementById("btnAddNote");
+    this.btnAdd.addEventListener("click", this.createNote.bind(this));
+      
+    
     // pressing the enter key should also work
     this.txtAdd = document.getElementById("txtAddNote");
     /*this.txtAdd.addEventListener("keypress", this.createNote.bind(this));*/
@@ -64,12 +75,9 @@ class App {
         let key = e.keyCode;
         if(key===13){
             
-        } 
+        }
     });
     
-    
-    this.btnAdd = document.getElementById("btnAddNote");
-    this.btnAdd.addEventListener("click", this.createNote.bind(this));
     // this.loadNotesFromStorage();
   }
   
