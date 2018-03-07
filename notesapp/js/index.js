@@ -32,15 +32,25 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    let itemString = localStorage.getItem('savedItems');
-    this.notesArray = JSON.parse(itemString);  
-      
-    //console.log(this.title); 
+    
+    if(itemString==NULL)
+    {
     this.notesArray.push(this.title);
     let arrayString = JSON.stringify(this.notesArray);
     console.log(arrayString);
     localStorage.setItem('savedItems', arrayString);
     console.log(this.notesArray);
+    }
+    else
+    {
+    let itemString = localStorage.getItem('savedItems');
+    this.notesArray = JSON.parse(itemString);
+    this.notesArray.push(this.title);
+    let arrayString = JSON.stringify(this.notesArray);
+    console.log(arrayString);
+    localStorage.setItem('savedItems', arrayString);
+    console.log(this.notesArray);
+    }
   }
   
   remove(){
@@ -110,7 +120,7 @@ class App {
     let note = new Note(this.title);
     // HINT🤩
     note.add();
-    note.saveToStorage();
+    //note.saveToStorage();
     this.reset();
   }
   
