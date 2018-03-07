@@ -11,10 +11,11 @@ class Note {
     let txt = document.createElement('p');
     let a = document.createElement('a');
     a.className = 'card-remove';
+    txt.className = 'ptitle';
     
     newNote.appendChild(txt);
     newNote.appendChild(a);
-    console.log(newNote);
+    //console.log(newNote);
     a.innerHTML="Remove";
     //txt.innerHTML= document.getElementById('txtAddNote').value;
     txt.innerHTML = this.title;
@@ -68,7 +69,7 @@ class Note {
     let itemString = localStorage.getItem('savedItems');
     let itemArray = JSON.parse(itemString);
     
-    let itemIndex = itemArray.indexOf();
+    let itemIndex = itemArray.indexOf(this.firstChild.innerHTML);
     console.log(itemIndex); 
     
   } 
