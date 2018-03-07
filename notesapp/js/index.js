@@ -16,7 +16,8 @@ class Note {
     newNote.appendChild(a);
     console.log(newNote);
     a.innerHTML="Remove";
-    txt.innerHTML= document.getElementById('txtAddNote').value;
+    //txt.innerHTML= document.getElementById('txtAddNote').value;
+    txt.innerHTML = this.title;
       
     a.addEventListener('click', this.remove.bind(newNote));
     
@@ -32,8 +33,9 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    
-    if(itemString==NULL)
+    let itemString = localStorage.getItem('savedItems');
+      
+    if(itemString==null)
     {
     this.notesArray.push(this.title);
     let arrayString = JSON.stringify(this.notesArray);
@@ -43,7 +45,6 @@ class Note {
     }
     else
     {
-    let itemString = localStorage.getItem('savedItems');
     this.notesArray = JSON.parse(itemString);
     this.notesArray.push(this.title);
     let arrayString = JSON.stringify(this.notesArray);
@@ -57,10 +58,19 @@ class Note {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
     let element = this;
-    element.parentNode.removeChild(element);
+    element.className='card bounceOutUp animated';
+    setTimeout(function(){element.parentNode.removeChild(element);}, 3000);
+    //element.parentNode.removeChild(element);
     
-    element.className='card slideOutLeft animated';
+    
       //delay / time out fixen!
+    
+    let itemString = localStorage.getItem('savedItems');
+    let itemArray = JSON.parse(itemString);
+    
+    let itemIndex = itemArray.indexOf();
+    console.log(itemIndex); 
+    
   } 
 }
 
@@ -107,11 +117,11 @@ class App {
     let itemArray = JSON.parse(itemString);
     //console.log(itemArray);
     
-    /*let i;
+    let i;
     for(i=0; i< itemArray.length; i++){
-        let note = new Note(this.itemArray[i]);
+        let note = new Note(itemArray[i]);
         note.add();
-    }*/
+    }
   }
    
   createNote(e){
@@ -120,7 +130,7 @@ class App {
     let note = new Note(this.title);
     // HINT🤩
     note.add();
-    //note.saveToStorage();
+    note.saveToStorage();
     this.reset();
   }
   
