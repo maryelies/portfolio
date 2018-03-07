@@ -70,8 +70,15 @@ class Note {
     let itemArray = JSON.parse(itemString);
     
     let itemIndex = itemArray.indexOf(this.firstChild.innerHTML);
-    console.log(itemIndex); 
+    //console.log(itemIndex);
     
+    itemArray.splice(itemIndex,1);
+    // itemIndex beginpunt, 1 = aantal items na begintpunt, dus nu enkel beginpunt
+    
+    
+    let arrayString = JSON.stringify(itemArray);
+    console.log(arrayString);
+    localStorage.setItem('savedItems', arrayString);
   } 
 }
 
